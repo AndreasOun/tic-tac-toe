@@ -1,0 +1,41 @@
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+  
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: #eee;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.cell:hover {
+    background-color: #ddd;
+}
+
+.cell:active {
+    background-color: #ccc;
+}
+
+.reset {
+    justify-self: center;
+}
