@@ -60,11 +60,7 @@ const gameController = (() => {
       }
     }
 
-    // Check if the board is full
-    if (board.filter(square => square === '').length === 0) {
-      // It's a tie
-      return true;
-    }
+   
 
     // No winner yet
     return false;
@@ -127,8 +123,8 @@ const gameController = (() => {
   };
 
 
-  const showWinnerText = (player) => {
-    const winnerText = document.getElementById('winner-text');
+    const showWinnerText = (player) => {
+    const winnerText = document.getElementById('winner-text')
     const winnerName = document.getElementById('winner-name');
 
 if (player === 'tie') {
