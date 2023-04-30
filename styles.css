@@ -1,7 +1,28 @@
+body {
+    background-color: #0891b2;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+button {
+    padding: 15px;
+    font-family: 'roboto', sans-serif;
+    background-color: #a5f3fc;
+    border: none;
+    color: black;
+}
+
+button:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
 
 .container {
     display: grid;
-    grid-template-columns: 1fr;
     grid-gap: 10px;
     justify-content: center;
     align-items: center;
@@ -14,28 +35,71 @@
     width: 300px;
     height: 300px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
-  
 .cell {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 20px;
     font-weight: bold;
     background-color: #eee;
     cursor: pointer;
     box-sizing: border-box;
+    transition: background-color 0.3s;
 }
 
 .cell:hover {
     background-color: #ddd;
 }
 
-.cell:active {
-    background-color: #ccc;
-}
+
 
 .reset {
     justify-self: center;
 }
+
+
+#winner-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: none;
+  }
+  
+  #winner-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  #winner-text p {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  
+  #continue-button {
+    font-size: 24px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #continue-button:hover {
+    background-color: #3E8E41;
+  }
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
