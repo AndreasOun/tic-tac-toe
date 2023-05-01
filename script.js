@@ -60,10 +60,9 @@ const gameController = (() => {
       }
     }
 
-   
-
     // No winner yet
     return false;
+    
   };
 
   const checkTie = (board) => {
@@ -92,7 +91,6 @@ const gameController = (() => {
   const render = () => {
     const board = gameBoard.getBoard();
     const currentPlayer = gameBoard.getCurrentPlayer();
-    const currentPlayerDisplay = document.querySelector('.current-player');
   
     cells.forEach((cell, index) => {
       cell.textContent = board[index];
@@ -123,19 +121,25 @@ const gameController = (() => {
   };
 
 
-    const showWinnerText = (player) => {
-    const winnerText = document.getElementById('winner-text')
+  const showWinnerText = (player) => {
+    const winnerText = document.getElementById('winner-text');
     const winnerName = document.getElementById('winner-name');
-
-if (player === 'tie') {
-  winnerName.textContent = 'Tie game!';
-} else {
-  winnerName.textContent = `${player.getName()} wins!`;
-}
-
-setTimeout(() => {
-  winnerText.style.display = 'block';
-}, 1000);};
-
-render();
+    const continueButton = document.getElementById('continue');
+  
+    if (player === 'tie') {
+      winnerName.textContent = 'Tie game!';
+    } else {
+      winnerName.textContent = `${player.getName()} wins!`;
+    }
+  
+    winnerText.style.display = 'block';
+  
+    continueButton.textContent = 'Continue';
+    continueButton.addEventListener('click', () => {
+      winnerText.style.display = 'none';
+    });
+  
+    winnerText.appendChild(continueButton);
+    document.body.appendChild(winnerText); // Append winnerText to the body
+  };
 })();
