@@ -80,9 +80,19 @@ const gameController = (() => {
 
   const makeMoveHandler = (index) => {
     if (gameBoard.makeMove(index)) {
-      render();
+    render();
+    if (!checkWin(gameBoard.getBoard(), 'O') && !checkTie(gameBoard.getBoard())) {
+    setTimeout(() => {
+    let randomIndex;
+    do {
+    randomIndex = Math.floor(Math.random() * 9);
+    } while (gameBoard.getBoard()[randomIndex] !== '');
+    gameBoard.makeMove(randomIndex);
+    render();
+    }, 500);
     }
-  };
+  }
+};
 
   cells.forEach((cell, index) => {
     cell.addEventListener('click', () => makeMoveHandler(index));
@@ -90,7 +100,6 @@ const gameController = (() => {
 
   const render = () => {
     const board = gameBoard.getBoard();
-    const currentPlayer = gameBoard.getCurrentPlayer();
   
     cells.forEach((cell, index) => {
       cell.textContent = board[index];
@@ -116,8 +125,6 @@ const gameController = (() => {
       gameBoard.reset();
       return;
     }
-  
-    currentPlayerDisplay.textContent = currentPlayer;
   };
 
 
