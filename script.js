@@ -1,3 +1,19 @@
+const beforeGame = document.querySelector('#before-game');
+
+beforeGame.style.display = 'block';
+
+const beforeGameButton = document.getElementById('continue-before');
+
+beforeGameButton.textContent = 'Continue';
+beforeGameButton.addEventListener('click', () => {
+beforeGame.style.display = 'none';
+
+beforeGame.appendChild(beforeGameButton);
+    document.body.appendChild(beforeGame); 
+});
+
+
+
 const gameBoard = (() => {
   let board = ["", "", "", "", "", "", "", "", ""];
   let currentPlayer = 'X';
@@ -128,6 +144,7 @@ const gameController = (() => {
   };
 
 
+
   const showWinnerText = (player) => {
     const winnerText = document.getElementById('winner-text');
     const winnerName = document.getElementById('winner-name');
@@ -147,6 +164,6 @@ const gameController = (() => {
     });
   
     winnerText.appendChild(continueButton);
-    document.body.appendChild(winnerText); // Append winnerText to the body
+    document.body.appendChild(winnerText); // y
   };
 })();
